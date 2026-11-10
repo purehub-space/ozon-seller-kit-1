@@ -125,6 +125,10 @@ def main():
     rnd, batch_no = 0, 0
     hour_start, hour_count = time.time(), 0
     st = {"ok": 0, "f403": 0, "other": 0, "req": 0}
+    # 自适应限速：响应变慢是配额将尽的先行指标（实测 P50 833ms→3874ms 后才出 403）
+    ms_win = []
+    cur_rate = a.rate
+    yellow_streak = 0
 
     while time.time() < deadline:
         done = {r[0] for r in con.execute("select sku from stock_obs where round=? and status=200", (rnd,))}
@@ -173,7 +177,7 @@ def main():
             hour_count += len(batch)
             el = time.time() - t0
             rate = len(batch) / el if el > 0 else 0
-            mss = [r[3] for r in rows]
+            mss = [r[3] for r in rows if r[1] == 200] or [r[3] for r in rows]
             bts = [r[4] for r in rows if r[4] > 0]
             total_ok = con.execute("select count(*) from stock_obs where status=200").fetchone()[0]
             fr = con.execute("select count(*) from stock_obs where free_rest is not null").fetchone()[0]
@@ -194,12 +198,33 @@ def main():
                 print(f"[http] 403 过半 ({f403}/{len(batch)}) → 疑似出口 IP 级 challenge，冷却 180s", flush=True)
                 time.sleep(180)
                 hdr, minted = load_cookie()
-            # 闸门 1：稳态限速
-            if a.rate > 0:
-                target = len(batch) / a.rate
-                gap = target - (time.time() - t0)
-                if gap > 0:
-                    time.sleep(gap)
+            # 闸门 1：自适应限速（响应时延是配额将尽的先行指标）
+            if a.rate > 0 and mss:
+                ms_win.extend(mss)
+                ms_win = ms_win[-200:]
+                p50w = pct(ms_win, 50)
+                p95w = pct(ms_win, 95)
+                if p50w > 2800:
+                    print(f"[http] 红灯 P50窗口={p50w}ms>2800 → 暂停 600s（配额将尽，主动退让）", flush=True)
+                    time.sleep(600)
+                    ms_win.clear(); cur_rate = a.rate; yellow_streak = 0
+                elif p50w > 2000 or p95w > 3000:
+                    yellow_streak += 1
+                    cur_rate = max(cur_rate * 0.5, 0.1)
+                    print(f"[http] 黄灯 P50={p50w}ms P95={p95w}ms → 降速至 {cur_rate:.2f}页/秒（第{yellow_streak}轮）", flush=True)
+                    if yellow_streak >= 3:
+                        print("[http] 连续 3 轮黄灯 → 暂停 300s", flush=True)
+                        time.sleep(300)
+                        ms_win.clear(); cur_rate = a.rate; yellow_streak = 0
+                elif p50w < 1500:
+                    yellow_streak = 0
+                    if cur_rate < a.rate:
+                        cur_rate = min(cur_rate * 1.3, a.rate)
+                        print(f"[http] 绿灯 P50={p50w}ms → 提速至 {cur_rate:.2f}页/秒", flush=True)
+                if cur_rate > 0:
+                    gap = len(batch) / cur_rate - (time.time() - t0)
+                    if gap > 0:
+                        time.sleep(gap)
 
     print(f"[http] 结束 请求{st['req']} 成功{st['ok']} 403={st['f403']} 其他={st['other']}", flush=True)
 
