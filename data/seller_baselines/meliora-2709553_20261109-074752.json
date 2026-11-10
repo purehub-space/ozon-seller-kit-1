@@ -1,0 +1,605 @@
+{
+  "seller": "meliora-2709553",
+  "base_path": "/seller/meliora-2709553/",
+  "mode": "sorting=popular (36/页, 串行)",
+  "captured_at": "2026-11-09T07:47:52",
+  "pages": [
+    [
+      1,
+      36,
+      36,
+      36,
+      1.75
+    ],
+    [
+      2,
+      21,
+      21,
+      57,
+      3.83
+    ],
+    [
+      3,
+      0,
+      0,
+      57,
+      5.73
+    ]
+  ],
+  "page_count": 3,
+  "total": 57,
+  "elapsed": 5.73,
+  "cookie_rebuilds": 0,
+  "skus": [
+    {
+      "sku_id": "4380191856",
+      "title": "Соевое мясо китайские снеки латяо набор ассорти вкусов 10 шт",
+      "price": 211,
+      "rating": 4.8,
+      "reviews_count": 10,
+      "stock_max": 1845,
+      "link": "/product/soevoe-myaso-kitayskie-sneki-latyao-nabor-assorti-vkusov-10-sht-4380191856/",
+      "is_advert": false
+    },
+    {
+      "sku_id": "5696777025",
+      "title": "Набор Зунтика Азиатские вкусняшки, 15 вкусов",
+      "price": 346,
+      "rating": 5,
+      "reviews_count": 6,
+      "stock_max": 174,
+      "link": "/product/nabor-zuntika-aziatskie-vkusnyashki-15-vkusov-5696777025/",
+      "is_advert": false
+    },
+    {
+      "sku_id": "4882813248",
+      "title": "Брелок наташа розовый в подарочной упаковке, подвеска на ключи, сумку и рюкзак",
+      "price": 92,
+      "rating": 4.7,
+      "reviews_count": 1,
+      "stock_max": 324,
+      "link": "/product/brelok-natasha-rozovyy-v-podarochnoy-upakovke-podveska-na-klyuchi-sumku-i-ryukzak-4882813248/",
+      "is_advert": false
+    },
+    {
+      "sku_id": "5096817337",
+      "title": "куб needoh nice cube антистресс сквиш нидоу",
+      "price": 243,
+      "rating": 4.6,
+      "reviews_count": 5,
+      "stock_max": 884,
+      "link": "/product/kub-needoh-nice-cube-antistress-skvish-nidou-5096817337/",
+      "is_advert": false
+    },
+    {
+      "sku_id": "3521914151",
+      "title": "китайские снеки латяо набор ассорти вкусов 6 шт",
+      "price": 483,
+      "rating": 4.8,
+      "reviews_count": 10,
+      "stock_max": 1165,
+      "link": "/product/kitayskie-sneki-latyao-nabor-assorti-vkusov-6-sht-3521914151/",
+      "is_advert": false
+    },
+    {
+      "sku_id": "3532899596",
+      "title": "Соевое мясо китайские снеки латяо набор ассорти вкусов 6 шт",
+      "price": 241,
+      "rating": 4.8,
+      "reviews_count": 10,
+      "stock_max": 1214,
+      "link": "/product/soevoe-myaso-kitayskie-sneki-latyao-nabor-assorti-vkusov-6-sht-3532899596/",
+      "is_advert": false
+    },
+    {
+      "sku_id": "5044498550",
+      "title": "ассорти сube антистресс нидоу сквиш",
+      "price": 339,
+      "rating": 4.6,
+      "reviews_count": 5,
+      "stock_max": 1043,
+      "link": "/product/assorti-sube-antistress-nidou-skvish-5044498550/",
+      "is_advert": false
+    },
+    {
+      "sku_id": "5069136333",
+      "title": "Glitter Dumpling Хинкали антистресс 3 /пельмени сквиш/ антистрес сквиш-мялка/ игрушка для снятия стресса",
+      "price": 178,
+      "rating": 4.5,
+      "reviews_count": 1,
+      "stock_max": 278,
+      "link": "/product/glitter-dumpling-hinkali-antistress-3-pelmeni-skvish-antistres-skvish-myalka-igrushka-dlya-5069136333/",
+      "is_advert": false
+    },
+    {
+      "sku_id": "5496830570",
+      "title": "китайские снеки латяо набор зунтик 12 шт",
+      "price": 230,
+      "rating": 4.8,
+      "reviews_count": 10,
+      "stock_max": 981,
+      "link": "/product/kitayskie-sneki-latyao-nabor-zuntik-12-sht-5496830570/",
+      "is_advert": false
+    },
+    {
+      "sku_id": "5171810361",
+      "title": "куб needoh nice cube антистресс сквиш нидоу",
+      "price": 231,
+      "rating": 4.6,
+      "reviews_count": 5,
+      "stock_max": 659,
+      "link": "/product/kub-needoh-nice-cube-antistress-skvish-nidou-5171810361/",
+      "is_advert": false
+    },
+    {
+      "sku_id": "5490136080",
+      "title": "Сквиш герои масло антистресс 1 шт",
+      "price": 143,
+      "rating": 4.8,
+      "reviews_count": 1,
+      "stock_max": 971,
+      "link": "/product/skvish-geroi-maslo-antistress-1-sht-5490136080/",
+      "is_advert": false
+    },
+    {
+      "sku_id": "4998391656",
+      "title": "осьминог голубой needoh nice cube антистресс нидоу сквиш",
+      "price": 231,
+      "rating": 4.6,
+      "reviews_count": 5,
+      "stock_max": 446,
+      "link": "/product/osminog-goluboy-needoh-nice-cube-antistress-nidou-skvish-4998391656/",
+      "is_advert": false
+    },
+    {
+      "sku_id": "5327339780",
+      "title": "Китайский торт Тирамису КОФЕ, 125гр.",
+      "price": 207,
+      "rating": 4.7,
+      "reviews_count": 206,
+      "stock_max": 245,
+      "link": "/product/kitayskiy-tort-tiramisu-kofe-125gr-5327339780/",
+      "is_advert": false
+    },
+    {
+      "sku_id": "5069191362",
+      "title": "капля needoh nice cube антистресс сквиш нидоу",
+      "price": 175,
+      "rating": 4.6,
+      "reviews_count": 5,
+      "stock_max": 116,
+      "link": "/product/kaplya-needoh-nice-cube-antistress-skvish-nidou-5069191362/",
+      "is_advert": false
+    },
+    {
+      "sku_id": "5316073220",
+      "title": "Кофейные леденцы без сахара, 32 г",
+      "price": 176,
+      "rating": 4.9,
+      "reviews_count": 2,
+      "stock_max": 207,
+      "link": "/product/kofeynye-ledentsy-bez-sahara-32-g-5316073220/",
+      "is_advert": false
+    },
+    {
+      "sku_id": "5119259180",
+      "title": "Сквиш Масло антистресс 1 шт",
+      "price": 171,
+      "rating": 4.8,
+      "reviews_count": 1,
+      "stock_max": 758,
+      "link": "/product/skvish-maslo-antistress-1-sht-5119259180/",
+      "is_advert": false
+    },
+    {
+      "sku_id": "6019713062",
+      "title": "китайские снеки латяо ломтики со вкусом острой говядиной tian long 1 шт",
+      "price": 99,
+      "rating": 4.7,
+      "reviews_count": 15,
+      "stock_max": 100,
+      "link": "/product/kitayskie-sneki-latyao-lomtiki-so-vkusom-ostroy-govyadinoy-tian-long-1-sht-6019713062/",
+      "is_advert": false
+    },
+    {
+      "sku_id": "6019708947",
+      "title": "китайские снеки латяо кубики со вкусом стейка tian long 1 шт",
+      "price": 99,
+      "rating": 4.7,
+      "reviews_count": 15,
+      "stock_max": 100,
+      "link": "/product/kitayskie-sneki-latyao-kubiki-so-vkusom-steyka-tian-long-1-sht-6019708947/",
+      "is_advert": false
+    },
+    {
+      "sku_id": "4882601775",
+      "title": "Брелок Дамплинг в подарочной упаковке, подвеска на ключи, сумку и рюкзак",
+      "price": 210,
+      "rating": 4.7,
+      "reviews_count": 1,
+      "stock_max": 1194,
+      "link": "/product/brelok-dampling-v-podarochnoy-upakovke-podveska-na-klyuchi-sumku-i-ryukzak-4882601775/",
+      "is_advert": false
+    },
+    {
+      "sku_id": "5327341428",
+      "title": "Китайский торт Тирамису КЛУБНИКА, 125гр.",
+      "price": 185,
+      "rating": 4.7,
+      "reviews_count": 206,
+      "stock_max": 219,
+      "link": "/product/kitayskiy-tort-tiramisu-klubnika-125gr-5327341428/",
+      "is_advert": false
+    },
+    {
+      "sku_id": "6019711031",
+      "title": "китайские снеки латяо палочки со вкусом стейка tian long 1 шт",
+      "price": 99,
+      "rating": 4.7,
+      "reviews_count": 15,
+      "stock_max": 100,
+      "link": "/product/kitayskie-sneki-latyao-palochki-so-vkusom-steyka-tian-long-1-sht-6019711031/",
+      "is_advert": false
+    },
+    {
+      "sku_id": "5765261129",
+      "title": "sprite needoh nice cube антистресс нидоу сквиш star",
+      "price": 387,
+      "rating": 4.6,
+      "reviews_count": 5,
+      "stock_max": 1495,
+      "link": "/product/sprite-needoh-nice-cube-antistress-nidou-skvish-star-5765261129/",
+      "is_advert": false
+    },
+    {
+      "sku_id": "6019710052",
+      "title": "китайские снеки латяо палочки со вкусом острой говядиной tian long 1 шт",
+      "price": 99,
+      "rating": 4.7,
+      "reviews_count": 15,
+      "stock_max": 98,
+      "link": "/product/kitayskie-sneki-latyao-palochki-so-vkusom-ostroy-govyadinoy-tian-long-1-sht-6019710052/",
+      "is_advert": false
+    },
+    {
+      "sku_id": "5327343196",
+      "title": "Китайский торт Тирамису ШОКОЛАД, 125гр.",
+      "price": 211,
+      "rating": 4.7,
+      "reviews_count": 206,
+      "stock_max": 185,
+      "link": "/product/kitayskiy-tort-tiramisu-shokolad-125gr-5327343196/",
+      "is_advert": false
+    },
+    {
+      "sku_id": "5656826996",
+      "title": "китайские снеки со вкуcом чеснок латяо набор зунтик 3 шт",
+      "price": 99,
+      "rating": 4.8,
+      "reviews_count": 10,
+      "stock_max": 417,
+      "link": "/product/kitayskie-sneki-so-vkucom-chesnok-latyao-nabor-zuntik-3-sht-5656826996/",
+      "is_advert": false
+    },
+    {
+      "sku_id": "5328393103",
+      "title": "Китайский торт Тирамису Б ШК, 125гр.",
+      "price": 228,
+      "rating": 4.7,
+      "reviews_count": 206,
+      "stock_max": 231,
+      "link": "/product/kitayskiy-tort-tiramisu-b-shk-125gr-5328393103/",
+      "is_advert": false
+    },
+    {
+      "sku_id": "5023481410",
+      "title": "Glitter Dumpling Хинкали антистресс 2 /пельмени сквиш/ антистрес сквиш-мялка/ игрушка для снятия стресса",
+      "price": 283,
+      "rating": 4.5,
+      "reviews_count": 1,
+      "stock_max": 674,
+      "link": "/product/glitter-dumpling-hinkali-antistress-2-pelmeni-skvish-antistres-skvish-myalka-igrushka-dlya-5023481410/",
+      "is_advert": false
+    },
+    {
+      "sku_id": "5755471941",
+      "title": "Куб needoh nice cube антистресс сквиш v",
+      "price": 759,
+      "rating": 4.9,
+      "reviews_count": 28,
+      "stock_max": 742,
+      "link": "/product/kub-needoh-nice-cube-antistress-skvish-v-5755471941/",
+      "is_advert": false
+    },
+    {
+      "sku_id": "5279720017",
+      "title": "капля needoh nice cube антистресс сквиш нидоу",
+      "price": 278,
+      "rating": 4.6,
+      "reviews_count": 5,
+      "stock_max": 64,
+      "link": "/product/kaplya-needoh-nice-cube-antistress-skvish-nidou-5279720017/",
+      "is_advert": false
+    },
+    {
+      "sku_id": "5171319565",
+      "title": "куб needoh nice cube антистресс сквиш нидоу",
+      "price": 434,
+      "rating": 4.7,
+      "reviews_count": 333,
+      "stock_max": 555,
+      "link": "/product/kub-needoh-nice-cube-antistress-skvish-nidou-5171319565/",
+      "is_advert": false
+    },
+    {
+      "sku_id": "5927688893",
+      "title": "китайские снеки латяо tian long набор 4шт",
+      "price": 238,
+      "rating": 4.7,
+      "reviews_count": 15,
+      "stock_max": 653,
+      "link": "/product/kitayskie-sneki-latyao-tian-long-nabor-4sht-5927688893/",
+      "is_advert": false
+    },
+    {
+      "sku_id": "5653791889",
+      "title": "китайские снеки со вкуcом креветки латяо набор зунтик 3 шт",
+      "price": 140,
+      "rating": 4.8,
+      "reviews_count": 10,
+      "stock_max": 390,
+      "link": "/product/kitayskie-sneki-so-vkucom-krevetki-latyao-nabor-zuntik-3-sht-5653791889/",
+      "is_advert": false
+    },
+    {
+      "sku_id": "5612472195",
+      "title": "Соевое мясо китайские снеки латяо набор ассорти вкусов 5 шт",
+      "price": 194,
+      "rating": 4.8,
+      "reviews_count": 10,
+      "stock_max": 1642,
+      "link": "/product/soevoe-myaso-kitayskie-sneki-latyao-nabor-assorti-vkusov-5-sht-5612472195/",
+      "is_advert": false
+    },
+    {
+      "sku_id": "4082584754",
+      "title": "Соевое мясо китайские снеки латяо набор ассорти вкусов 4 шт",
+      "price": 219,
+      "rating": 4.8,
+      "reviews_count": 10,
+      "stock_max": 102,
+      "link": "/product/soevoe-myaso-kitayskie-sneki-latyao-nabor-assorti-vkusov-4-sht-4082584754/",
+      "is_advert": false
+    },
+    {
+      "sku_id": "5645717843",
+      "title": "китайские снеки со вкучом латяо набор зунтик 3 шт",
+      "price": 162,
+      "rating": 4.8,
+      "reviews_count": 10,
+      "stock_max": 1048,
+      "link": "/product/kitayskie-sneki-so-vkuchom-latyao-nabor-zuntik-3-sht-5645717843/",
+      "is_advert": false
+    },
+    {
+      "sku_id": "4859618810",
+      "title": "Glitter Dumpling Хинкали антистресс /пельмени сквиш/ антистрес сквиш-мялка/ игрушка для снятия стресса",
+      "price": 222,
+      "rating": 4.5,
+      "reviews_count": 1,
+      "stock_max": 1278,
+      "link": "/product/glitter-dumpling-hinkali-antistress-pelmeni-skvish-antistres-skvish-myalka-igrushka-dlya-4859618810/",
+      "is_advert": false
+    },
+    {
+      "sku_id": "5327342594",
+      "title": "Китайский торт Тирамису ВИНОГРАД, 125гр.",
+      "price": 207,
+      "rating": 4.7,
+      "reviews_count": 206,
+      "stock_max": 391,
+      "link": "/product/kitayskiy-tort-tiramisu-vinograd-125gr-5327342594/",
+      "is_advert": false
+    },
+    {
+      "sku_id": "5765430542",
+      "title": "sprite needoh nice cube антистресс нидоу сквиш star",
+      "price": 448,
+      "rating": 4.6,
+      "reviews_count": 5,
+      "stock_max": 1005,
+      "link": "/product/sprite-needoh-nice-cube-antistress-nidou-skvish-star-5765430542/",
+      "is_advert": false
+    },
+    {
+      "sku_id": "5647788445",
+      "title": "китайские снеки со вкучом барбекю латяо набор зунтик 3 шт",
+      "price": 129,
+      "rating": 4.8,
+      "reviews_count": 10,
+      "stock_max": 360,
+      "link": "/product/kitayskie-sneki-so-vkuchom-barbekyu-latyao-nabor-zuntik-3-sht-5647788445/",
+      "is_advert": false
+    },
+    {
+      "sku_id": "4508744940",
+      "title": "китайский мармелад конфеты клубника, 500г",
+      "price": 210,
+      "rating": 4.7,
+      "reviews_count": 185,
+      "stock_max": 13,
+      "link": "/product/kitayskiy-marmelad-konfety-klubnika-500g-4508744940/",
+      "is_advert": false
+    },
+    {
+      "sku_id": "5765251738",
+      "title": "куб needoh nice cube антистресс сквиш нидоу star",
+      "price": 489,
+      "rating": 4.6,
+      "reviews_count": 5,
+      "stock_max": 1,
+      "link": "/product/kub-needoh-nice-cube-antistress-skvish-nidou-star-5765251738/",
+      "is_advert": false
+    },
+    {
+      "sku_id": "5012556724",
+      "title": "Брелок наташа сиреневый в подарочной упаковке, подвеска на ключи, сумку и рюкзак",
+      "price": 214,
+      "rating": 4.7,
+      "reviews_count": 1,
+      "stock_max": 321,
+      "link": "/product/brelok-natasha-sirenevyy-v-podarochnoy-upakovke-podveska-na-klyuchi-sumku-i-ryukzak-5012556724/",
+      "is_advert": false
+    },
+    {
+      "sku_id": "5648477515",
+      "title": "китайские снеки со вкучом зеленый латяо набор зунтик 3 шт",
+      "price": 129,
+      "rating": 4.8,
+      "reviews_count": 10,
+      "stock_max": 565,
+      "link": "/product/kitayskie-sneki-so-vkuchom-zelenyy-latyao-nabor-zuntik-3-sht-5648477515/",
+      "is_advert": false
+    },
+    {
+      "sku_id": "6246041358",
+      "title": "желе фруктоый 5 шт Уцененный товар",
+      "price": 273,
+      "rating": 55,
+      "reviews_count": null,
+      "stock_max": 1,
+      "link": "/product/zhele-fruktoyy-5-sht-utsenennyy-tovar-6246041358/",
+      "is_advert": false
+    },
+    {
+      "sku_id": "5012554342",
+      "title": "Брелок наташа голубой в подарочной упаковке, подвеска на ключи, сумку и рюкзак",
+      "price": 219,
+      "rating": 4.7,
+      "reviews_count": 1,
+      "stock_max": 379,
+      "link": "/product/brelok-natasha-goluboy-v-podarochnoy-upakovke-podveska-na-klyuchi-sumku-i-ryukzak-5012554342/",
+      "is_advert": false
+    },
+    {
+      "sku_id": "5171843506",
+      "title": "куб needoh nice cube антистресс сквиш нидоу",
+      "price": 423,
+      "rating": 4.6,
+      "reviews_count": 5,
+      "stock_max": 749,
+      "link": "/product/kub-needoh-nice-cube-antistress-skvish-nidou-5171843506/",
+      "is_advert": false
+    },
+    {
+      "sku_id": "5715858023",
+      "title": "антистресс",
+      "price": 278,
+      "rating": 4.8,
+      "reviews_count": 1,
+      "stock_max": 2000,
+      "link": "/product/antistress-5715858023/",
+      "is_advert": false
+    },
+    {
+      "sku_id": "5734823794",
+      "title": "sprite needoh nice cube антистресс нидоу сквиш",
+      "price": 548,
+      "rating": 4.6,
+      "reviews_count": 5,
+      "stock_max": 735,
+      "link": "/product/sprite-needoh-nice-cube-antistress-nidou-skvish-5734823794/",
+      "is_advert": false
+    },
+    {
+      "sku_id": "3547925133",
+      "title": "набор ассорти вкусов 10 шт",
+      "price": 454,
+      "rating": 4.8,
+      "reviews_count": 10,
+      "stock_max": 797,
+      "link": "/product/nabor-assorti-vkusov-10-sht-3547925133/",
+      "is_advert": false
+    },
+    {
+      "sku_id": "5313111277",
+      "title": "Набор Зунтика Азиатские вкусняшки, 15 вкусов",
+      "price": 593,
+      "rating": 5,
+      "reviews_count": 6,
+      "stock_max": 80,
+      "link": "/product/nabor-zuntika-aziatskie-vkusnyashki-15-vkusov-5313111277/",
+      "is_advert": false
+    },
+    {
+      "sku_id": "5012567221",
+      "title": "Брелок наташа карамельный в подарочной упаковке, подвеска на ключи, сумку и рюкзак",
+      "price": 214,
+      "rating": 4.7,
+      "reviews_count": 1,
+      "stock_max": 361,
+      "link": "/product/brelok-natasha-karamelnyy-v-podarochnoy-upakovke-podveska-na-klyuchi-sumku-i-ryukzak-5012567221/",
+      "is_advert": false
+    },
+    {
+      "sku_id": "5181333511",
+      "title": "спр needoh nice cube антистресс сквиш нидоу",
+      "price": 361,
+      "rating": 4.6,
+      "reviews_count": 5,
+      "stock_max": 40,
+      "link": "/product/spr-needoh-nice-cube-antistress-skvish-nidou-5181333511/",
+      "is_advert": false
+    },
+    {
+      "sku_id": "5490568400",
+      "title": "Куб needoh старбак nice cube антистресс сквиш",
+      "price": 567,
+      "rating": 4.6,
+      "reviews_count": 5,
+      "stock_max": 803,
+      "link": "/product/kub-needoh-starbak-nice-cube-antistress-skvish-5490568400/",
+      "is_advert": false
+    },
+    {
+      "sku_id": "5171862005",
+      "title": "куб needoh nice cube антистресс сквиш нидоу",
+      "price": 382,
+      "rating": 4.6,
+      "reviews_count": 5,
+      "stock_max": 110,
+      "link": "/product/kub-needoh-nice-cube-antistress-skvish-nidou-5171862005/",
+      "is_advert": false
+    },
+    {
+      "sku_id": "5069192834",
+      "title": "капля needoh nice cube антистресс сквиш нидоу",
+      "price": 450,
+      "rating": 4.6,
+      "reviews_count": 5,
+      "stock_max": 22,
+      "link": "/product/kaplya-needoh-nice-cube-antistress-skvish-nidou-5069192834/",
+      "is_advert": false
+    },
+    {
+      "sku_id": "5665212001",
+      "title": "желе фруктоый 5 шт",
+      "price": 500,
+      "rating": null,
+      "reviews_count": null,
+      "stock_max": 545,
+      "link": "/product/zhele-fruktoyy-5-sht-5665212001/",
+      "is_advert": false
+    },
+    {
+      "sku_id": "4466036791",
+      "title": "набор сладости асорти из азии BAOFOOD №1",
+      "price": 1008,
+      "rating": 5,
+      "reviews_count": 6,
+      "stock_max": 100,
+      "link": "/product/nabor-sladosti-asorti-iz-azii-baofood-1-4466036791/",
+      "is_advert": false
+    }
+  ]
+}

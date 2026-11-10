@@ -1,0 +1,19 @@
+{
+  "seller": "meliora-2709553",
+  "from": {
+    "captured_at": "2026-11-09T07:47:42",
+    "total": 57
+  },
+  "to": {
+    "captured_at": "2026-11-09T07:47:52",
+    "total": 57
+  },
+  "added": [],
+  "removed": [],
+  "added_count": 0,
+  "removed_count": 0,
+  "common": 57,
+  "price_changed": [],
+  "stock_changed": [],
+  "rating_changed": []
+}

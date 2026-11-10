@@ -120,8 +120,59 @@ p = re.findall(r'"quantityButton":\{"maxItems":(\d+),\s*"updateCartAction":\{"id
 
 前 1 万件用店铺批量可压到约 15 分钟。
 
-## 九、待验证
+## 九、实测结果：slug 命中率只有 25%，覆盖不足
 
-- [ ] 476 个卖家 slug 批量推断的实际命中率（当前样本 4/5，需扩大）
-- [ ] 店铺 API 走 curl_cffi（而非页内 fetch）是否同样返回 41 对（当前 cookie 配额已满，需重新 mint 后测）
+### 转写方案（西里尔 → 拉丁）
+
+```
+а a / б b / в v / г g / д d / е e / ё e / ж zh / з z / и i / й y / к k / л l
+м m / н n / о o / п p / р r / с s / т t / у u / ф f / х h / ц ts / ч ch / ш sh
+щ shch / ъ 空 / ы y / ь 空 / э e / ю yu / я ya
+```
+
+生成结果（476 个 SKU≥10 的卖家，覆盖 11,540 SKU）：
+
+```
+Сима-Ленд - Маркет  -> sima-lend-market
+Малыши и Малышки    -> malyshi-i-malyshki
+ФОРМИКС             -> formiks
+МТК «Алиса»         -> mtk-alisa
+Игрушки Греми       -> igrushki-gremi
+Тридевятое царство  -> tridevyatoe-tsarstvo
+```
+
+### 抽样验证 8 个：命中 2 个（25%）
+
+| 推断 slug | 响应 | SKU 数 | 判定 |
+|---|---|---|---|
+| `sima-lend` | 246,857 B | 30 | ✓ 真实店铺，标题「Каталог Сима-Ленд」 |
+| `igrushki-gremi` | 320,401 B | 38 | ✓ 真实店铺（标题正则未匹配） |
+| `sima-lend-market` | 149,250 B | 8 | ✗ 首页推荐位 |
+| `malyshi-i-malyshki` | 134,832 B | 8 | ✗ |
+| `nuzhno-lichno` | 135,778 B | 8 | ✗ |
+| `mtk-alisa` | 138,278 B | 8 | ✗ |
+| `tridevyatoe-tsarstvo` | 149,796 B | 8 | ✗ |
+| `tigrenok-toy-s` | 131,650 B | 8 | ✗ |
+
+**★ 有效判据（重要）：`SKU 数 ≥ 20` 且体积 ≥ 200KB = 真实店铺。**
+无效 slug 会返回 130–150KB、**恰好 8 个 SKU**（首页推荐位冒充），不要看标题判断（标题正则经常不匹配）。
+
+**已知失败原因：** `Сима-Ленд - Маркет` 的真实 slug 是 `sima-lend`，平台名后缀「- Маркет」要去掉才算。
+
+### 搜索接口反查 slug 也无效
+
+`url=/search/?text={urlencode(店名)}&from_global=true` → 返回 142–157KB，**`/seller/` 链接 0 个**。搜索页不暴露店铺 slug。
+
+### 因此实际覆盖
+
+- 476 个卖家 × 25% 命中 ≈ **119 个可用店铺**
+- 119 × 38 = **约 4,522 个 SKU（15% 的 29,823）**
+- 只需 119 请求，约 1 分钟
+
+**结论修正：店铺通道是「头部加速器」，不是主力。** 剩下 85% 仍必须走 PDP。
+
+## 十、待验证
+
+- [ ] 店铺 API 走 curl_cffi（而非页内 fetch）是否同样返回 41 对（cookie 配额已满，需重新 mint 后测）
 - [ ] 单店商品数远大于 38 时（如 345 个商品的店铺）首屏是否只给 38 个
+- [ ] 是否有更可靠的 name → slug 来源（如 seller 页面内 search_page_state、订单历史、卖家后台）

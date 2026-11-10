@@ -1,0 +1,31 @@
+Metadata-Version: 2.4
+Name: ozon-collector-runtime
+Version: 0.1.0
+Summary: Compliance-gated, mock-first collection runtime overlay for ozon-seller-kit
+Requires-Python: >=3.11
+License-File: LICENSE
+Requires-Dist: fastapi<1,>=0.115
+Requires-Dist: uvicorn[standard]<1,>=0.30
+Requires-Dist: pydantic<3,>=2
+Requires-Dist: sqlalchemy<3,>=2.0
+Requires-Dist: alembic<2,>=1.13
+Requires-Dist: psycopg[binary]<4,>=3.2
+Requires-Dist: redis<7,>=5.2
+Requires-Dist: httpx<1,>=0.27
+Requires-Dist: minio<8,>=7.2
+Requires-Dist: clickhouse-connect<1,>=0.8
+Requires-Dist: polars<2,>=1
+Requires-Dist: pyarrow<24,>=18
+Requires-Dist: prometheus-client<1,>=0.21
+Requires-Dist: opentelemetry-api<2,>=1.25
+Requires-Dist: opentelemetry-sdk<2,>=1.25
+Requires-Dist: opentelemetry-instrumentation-fastapi<1,>=0.46b0
+Requires-Dist: opentelemetry-exporter-otlp<2,>=1.25
+Requires-Dist: mcp<3,>=1.12
+Provides-Extra: test
+Requires-Dist: pytest<10,>=8; extra == "test"
+Requires-Dist: pytest-asyncio<2,>=0.24; extra == "test"
+Requires-Dist: httpx<1,>=0.27; extra == "test"
+Requires-Dist: fakeredis<3,>=2.26; extra == "test"
+Requires-Dist: pyyaml<7,>=6; extra == "test"
+Dynamic: license-file
