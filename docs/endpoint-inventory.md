@@ -13,6 +13,11 @@
 | buyer_reviews | 同入口 `url=/product/{sku}/reviews/?reviewsVariantMode=2&sort=...&page=N` | SKU、页数、排序 | page N | `ozon_buyer/collector.py:387-463` |
 | buyer_offers | 同入口 `url=/modal/otherOffersFromSellers?product_id={sku}&sort=price` | SKU、sort | 尚未确认全量 Offers 的翻页行为 | `ozon_buyer/api.py:158-236` |
 | buyer_image_upload | POST `www.ozon.ru/api/composer-api.bx/_action/searchByImage` | multipart `file` 图片上传；旧代码依赖 Cookie；上传与留存许可未核验 | 单次上传，返回 `image_id` 关联标识 | `ozon_buyer/image.py:6-9`；**禁用**，不得复用自动 Cookie 预热 |
+
+| seller_html_paging | GET `www.ozon.ru/seller/{slug}/products/?page=N`（**页面 HTML 本体，不带 layout/paginator 参数**） | slug、page；浏览器页内 fetch 带 cookie | page N，页间零交集 | **✅ 已实现**，25 页抽干 sima-lend 549 SKU，620–690KB/页、30 SKU/页；`scripts/drain_store.py` |
+| biz_graphql | POST `www.ozon.ru/api/graphql` | — | — | **❌ 不存在**，9 个路径变体全 404；页面 XHR/fetch 为 0 条，纯 SSR |
+| biz_pdp_fields | GET `...?url=/product/{sku}/` | sku；街道地址态 | 无 | **✅** 单请求含库存/绿标 cardPrice/黑标 price/原价/重量/评论数/评分 7 字段 |
+| biz_reviews_dist | GET `...?url=/product/{sku}/reviews/` | sku | page N | **✅** `dist` 星级分布来源（差评占比口径 `(1★+2★)/总数`） |
 | buyer_image_results | GET `www.ozon.ru/api/entrypoint-api.bx/page/json/v2?url=/search-by-image?image_id=<id>&page=N` | 上一步获得的 `image_id`、page；许可未核验 | 按 page；需样本验证完整性 | `ozon_buyer/image.py:6-13`；**禁用**，仅可做离线解析测试 |
 
 说明：以图搜图的 2 条 Buyer 私有入口仅是**旧代码识别结果**，不是授权证明或新 Runtime 支持项。Seller 网页内部端点**不是官方开放 Seller API**；在线启用前需独立核验账号、许可、留存及速率。新 Runtime 不依赖 Cookie 池、挑战绕过或多身份轮换；403、挑战页及权限失效立即暂停相关源。

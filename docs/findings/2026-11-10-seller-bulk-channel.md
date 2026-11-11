@@ -85,6 +85,8 @@ p = re.findall(r'"quantityButton":\{"maxItems":(\d+),\s*"updateCartAction":\{"id
 
 ## 六、店铺分页：拿不到更多库存（已验证）
 
+> **⚠️ 本节结论已被第十四节推翻（2026-11-11）。** 这里测的分页请求带了 `layout_page_index`/`paginator_token`，那是**分页组件的壳**，因此只有 49KB。正确做法是直接请求 `/seller/{slug}/products/?page=N` 的 HTML 本体，返回 620–690KB、30 个 SKU/页。保留本节作为反面样例。
+
 真实分页请求形态（浏览器滚动时自动发出）：
 
 ```
@@ -235,3 +237,97 @@ DOM 内 `sold` 仅 3 处（非销量语义）、`продано`/`заказов
 - [ ] 店铺 API 走 curl_cffi（而非页内 fetch）是否同样返回 41 对（cookie 配额已满，需重新 mint 后测）
 - [ ] 是否有更可靠的 name → slug 来源
 - [ ] 店铺页渲染时商品列表是否可由某个未捕获的 widget 请求批量取得（当前只抓到 4 个 widget，均非商品流）
+
+## 十四、★ 正确通道：直接 fetch HTML 分页，25 请求抽干全店 549 SKU（2026-11-11 实测）
+
+### 为什么之前失败
+
+第六节测的是浏览器分页组件发出的请求：
+
+```
+?url=/seller/jinghongtu/products/?layout_page_index=2&page=2&paginator_token=...&search_page_state=...
+→ 200 / 49,052 B / 0 个库存字段     ← 分页组件的壳
+```
+
+**它请求的是「分页组件」，不是「商品列表页」。**
+
+### 正确形态
+
+浏览器页内直接 fetch 页面 HTML 本体，**不带任何 layout/paginator 参数**：
+
+```js
+fetch('/seller/sima-lend/products/?page=N', {credentials:'include'})
+```
+
+| 对比 | 旧（分页组件） | 新（HTML 本体） |
+|---|---|---|
+| 响应体积 | 49,052 B | **620–690 KB** |
+| 每页 SKU | 0 | **30** |
+| 可用性 | 壳，无商品 | 完整商品卡片 |
+
+### sima-lend 全店实测
+
+- 连续翻 **25 页**，每页稳定 30 个
+- **页间交集 0**（page1 与 page2 各 30 个全新）
+- **累计 549 个唯一 SKU**，与池内该卖家 502 个基本对齐
+- **25 个请求、约 40 秒抽干**
+
+### 解析要点（关键陷阱）
+
+**切块方向必须是「以 `skuId` 为起点向后取」，不能向前取。**
+
+```python
+# 正确：skuId 是块起点，库存/价格/评分都在它之后
+pos = [m.start() for m in re.finditer(r'"skuId":"(\d+)"', h)]
+for i, p in enumerate(pos):
+    seg = h[p : pos[i+1] if i+1 < len(pos) else len(h)]
+
+# 库存
+re.findall(r'"quantityButton":{"maxItems":(\d+),\s*"updateCartAction":{"id":"(\d+)"', seg)
+```
+
+先前误用「以 skuId 为终点向前切」，导致全部解析成 None。
+
+### 字段覆盖率（549 SKU）
+
+| 字段 | 有值 | 覆盖率 |
+|---|---|---|
+| **库存** | **549/549** | **100%** |
+| 现价 | 378/549 | 69% |
+| 评分 | 325/549 | 59% |
+| 折扣 | 318/549 | 58% |
+| 评论数 | 179/549 | 33% |
+
+库存分布：0–10 有 118 个、11–100 有 162 个、101–1000 有 93 个、**2000 封顶 161 个**；中位 100、均值 745、最大 2000。
+
+### 效率
+
+| 通道 | 549 SKU 所需请求 | 耗时 |
+|---|---|---|
+| PDP 逐条 | 549 | 4–8 分钟 |
+| **店铺 HTML 分页** | **25** | **约 40 秒** |
+
+**快 6–12 倍，配额只耗 1/22。** 单请求产出 22 个 SKU。
+
+### 库存封顶说明
+
+`maxItems` 在 >2000 时一律显示 **2000**，真值未知。549 个里有 161 个（29%）命中天花板。
+
+### 仍未解决
+
+店铺页**没有任何商品级订单量字段**。25 页全量搜索：`sold` 55 次全是 `sold_out_page` 与商品名 `gp-solden-cr2032`；`Заказы` 75 次全是导航菜单；`куплен`/`продано`/`ordersCount` **全 0**。
+
+## 十五、GraphQL 端点不存在（2026-11-11 实测）
+
+`POST https://www.ozon.ru/api/graphql` → **404**。
+
+9 个路径变体全测，全部 404：
+
+`/api/graphql`、`/api/graphql/`、`/api/graphql/v1`、`/api/v1/graphql`、`/api/o3/graphql`、`/api/ozon/graphql`、`/api/composer-api.bx/graphql`、`/graphql`、`/graphql/v1`、`/api/entrypoint-api.bx/graphql`
+
+**注意假阳性**：`/graphql`、`/graphql/v1`、`/api/entrypoint-api.bx/graphql` 返回 404 但体积 576KB，那是 **SSR 兜底页**（任何未匹配路径都被它接管返回页面 HTML），不是 GraphQL 响应。
+
+**旁证**：监听 PDP 页面的 XHR/fetch，**共 0 条**。PDP 纯服务端渲染，前端不发数据请求，因此不存在给外部的 GraphQL 端点。
+
+**结论**：`entrypoint-api.bx/page/json/v2` 已经是等价能力——`url=` 定位资源，返回的 `widgetStates` 就是该资源的全字段集合。
+
